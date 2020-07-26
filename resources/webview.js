@@ -2,9 +2,11 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './components/App';
 
-// disable the context menu (eg. the right click menu) to have a more native feel
+/* 
+Boilerplate code
+disable the context menu (eg. the right click menu) to have a more native feel
 document.addEventListener('contextmenu', (e) => {
-  //e.preventDefault()
+  e.preventDefault()
 })
 
 // call the plugin from the webview
@@ -15,7 +17,7 @@ document.getElementById('button').addEventListener('click', () => {
 // call the wevbiew from the plugin
 window.setRandomNumber = (randomNumber) => {
   document.getElementById('answer').innerHTML = 'Random number from the plugin: ' + randomNumber
-}
+}*/
 
 (() => {
   ReactDOM.render(<App />, document.getElementById('root'))

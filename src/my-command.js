@@ -10,6 +10,7 @@ export default function () {
     identifier: webviewIdentifier,
     width: 240,
     height: 180,
+    alwaysOnTop: true,
     show: false
   }
 
@@ -55,7 +56,7 @@ export default function () {
     if(selectedLayers.length > 0){
       // We will only pick the first layer in the selection
       let layer = selectedLayers.layers[0];
-      layer.name = s + "ggga";
+      layer.name = s;
     }
   })
 
