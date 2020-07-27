@@ -72,17 +72,18 @@ export function onShutdown() {
   }
 }
 
-export function onSelectionChange() {
+export function onSelectionChange(context) {
   const existingWebview = getWebview(webviewIdentifier)
   if (existingWebview) {
     const webContents = existingWebview.webContents;
-    let document = sketch.getSelectedDocument()
-    var selectedLayers = document.selectedLayers
-  
-    if(selectedLayers.length > 0){
+    const actionContext = context.actionContext;
+    const newSelection = actionContext.newSelection;
+
+    if(newSelection.length > 0){
       // We will only pick the first layer in the selection
-      let layer = selectedLayers.layers[0];
-      let name = layer.name;
+      let layer = newSelection[0];
+      let wrappedLayer = sketch.fromNative(layer);
+      let name = wrappedLayer.name;
   
       webContents
       .executeJavaScript(`sendData('${name}')`)
