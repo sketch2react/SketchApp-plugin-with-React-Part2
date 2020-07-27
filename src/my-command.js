@@ -48,10 +48,10 @@ export default function () {
   })
 
   // add a handler for a call from web content's javascript
-  webContents.on('setLayerName', s => {
+  webContents.on('setSelectionName', s => {
     //UI.message(s)
     let document = sketch.getSelectedDocument()
-    var selectedLayers = document.selectedLayers
+    let selectedLayers = document.selectedLayers // This also includes artboards
 
     if(selectedLayers.length > 0){
       // We will only pick the first layer in the selection
@@ -77,7 +77,7 @@ export function onSelectionChange(context) {
   if (existingWebview) {
     const webContents = existingWebview.webContents;
     const actionContext = context.actionContext;
-    const newSelection = actionContext.newSelection;
+    const newSelection = actionContext.newSelection; // This also includes artboards
 
     if(newSelection.length > 0){
       // We will only pick the first layer in the selection

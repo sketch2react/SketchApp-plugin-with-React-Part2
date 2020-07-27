@@ -20,7 +20,7 @@ class App extends Component {
   handleButtonClick(e){
     const newName = `${this.state.data} 🦖`;
 
-    window.postMessage('setLayerName', newName); 
+    window.postMessage('setSelectionName', newName); 
     
     this.setState({
       data: newName 
