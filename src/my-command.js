@@ -32,7 +32,8 @@ export default function () {
       // We will only pick the first layer in the selection
       let layer = selectedLayers.layers[0];
       let name = layer.name;
-
+      UI.message(name)
+      
       webContents
       .executeJavaScript(`sendData('${name}')`)
       .catch(console.error)
